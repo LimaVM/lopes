@@ -8,7 +8,8 @@ let animalMarker = null;
 
 // Inicializar dashboard
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/dashboard.html") { // Alterado para .html
+    const path = window.location.pathname;
+    if (path === "/dashboard" || path === "/dashboard.html") {
         // Obter ID do usuário logado
         const userData = localStorage.getItem("userData");
         if (userData) {
