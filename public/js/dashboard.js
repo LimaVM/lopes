@@ -8,7 +8,8 @@ let animalMarker = null;
 
 // Inicializar dashboard
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname === "/dashboard.html") { // Alterado para .html
+    const path = window.location.pathname;
+    if (path === "/dashboard" || path === "/dashboard.html") {
         // Obter ID do usuário logado
         const userData = localStorage.getItem("userData");
         if (userData) {
@@ -34,6 +35,11 @@ function initializeMap() {
     animalMarker = L.marker([-23.5505, -46.6333]).addTo(map)
         .bindPopup("Posição do Animal")
         .openPopup();
+
+    // Garantir que o mapa renderize corretamente dentro de containers dinâmicos
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 100);
 }
 
 // Atualizar display do GPS e mapa
