@@ -1325,3 +1325,39 @@ body {
     }
 }
 
+/* Notificações */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #1f2937;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    margin-top: 10px;
+    background: #f3f4f6;
+    border-left: 4px solid #2563eb;
+}
+
+.notification.success {
+    background: #ecfdf5;
+    border-color: #10b981;
+}
+
+.notification.error {
+    background: #fef2f2;
+    border-color: #ef4444;
+}
+
+.notification.warning {
+    background: #fffbeb;
+    border-color: #f59e0b;
+}
+
+.notification.info {
+    background: #eff6ff;
+    border-color: #3b82f6;
+}
+
