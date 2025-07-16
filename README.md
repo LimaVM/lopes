@@ -16,7 +16,7 @@ Sistema completo de monitoramento IoT para animais com simulação GPS integrada
 ### ✅ Frontend
 - Interface moderna e responsiva
 - Dashboard interativo
-- Sistema de notificações
+ - Sistema de notificações centralizadas
 - Simulador GPS com controles
 - Múltiplos padrões de movimento (aleatório, circular, linear)
 - Métricas em tempo real
@@ -129,7 +129,7 @@ http://localhost:3000
 - Cards com hover effects
 - Animações suaves
 - Design responsivo para mobile
-- Sistema de notificações melhorado
+- Sistema de notificações melhorado (avisos centralizados com ícones)
 - Estados de loading visuais
 
 ### Funcionalidades

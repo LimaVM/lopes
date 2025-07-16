@@ -52,6 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(registerForm);
             const password = formData.get('password');
             const confirmPassword = formData.get('confirmPassword');
+
+            if (!formData.get('username') || !formData.get('email') || !password || !confirmPassword) {
+                showNotification('Preencha todos os campos', 'warning');
+                return;
+            }
             
             if (password !== confirmPassword) {
                 showNotification('As senhas não coincidem!', 'error');
@@ -94,6 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const formData = new FormData(loginForm);
+
+            if (!formData.get('email') || !formData.get('password')) {
+                showNotification('Preencha todos os campos', 'warning');
+                return;
+            }
             
             try {
                 const response = await fetch('/api/auth/login', {
