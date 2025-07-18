@@ -102,15 +102,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Função para mostrar notificações (se necessário)
 function showNotification(message, type = 'info') {
+    let container = document.getElementById('notificationContainer');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'notificationContainer';
+        document.body.appendChild(container);
+    }
+
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
-    notification.textContent = message;
-    
-    document.body.appendChild(notification);
-    
+
+    const icon = document.createElement('i');
+    switch (type) {
+        case 'success':
+            icon.className = 'fas fa-check-circle';
+            break;
+        case 'error':
+            icon.className = 'fas fa-exclamation-circle';
+            break;
+        case 'warning':
+            icon.className = 'fas fa-exclamation-triangle';
+            break;
+        default:
+            icon.className = 'fas fa-info-circle';
+    }
+
+    const text = document.createElement('span');
+    text.textContent = message;
+
+    notification.appendChild(icon);
+    notification.appendChild(text);
+    container.appendChild(notification);
+
     // Remover notificação após 5 segundos
     setTimeout(() => {
         notification.remove();
+        if (container.childElementCount === 0) {
+            container.remove();
+        }
     }, 5000);
 }
 

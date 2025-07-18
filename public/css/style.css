@@ -1319,6 +1319,42 @@ body {
     border: 1px solid #e5e7eb;
 }
 
+/* Notification Styles */
+#notificationContainer {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    animation: slideDown 0.3s ease, fadeOut 0.3s ease 4.7s forwards;
+    min-width: 280px;
+}
+
+.notification.success { background: #16a34a; }
+.notification.error { background: #dc2626; }
+.notification.warning { background: #d97706; }
+.notification.info { background: #2563eb; }
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
 @media (max-width: 768px) {
     .map-container {
         height: 300px;
